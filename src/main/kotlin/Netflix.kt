@@ -19,7 +19,8 @@ fun groupSimilarTitles(inputTitle: String): String? {
 
     // encode incoming word
     var encodedInputTitle = 0
-    inputTitle.forEach { symbol ->
+
+    inputTitle.lowercase().forEach { symbol ->
         encodedInputTitle += symbol.code
     }
     return encodedWordBank.filterKeys { key -> encodedWordBank[key] == encodedInputTitle }.keys.firstOrNull()
