@@ -4,15 +4,11 @@ import kotlin.test.Test
 class NetflixKtTest{
 
     @Test
-    fun testCalculateSum() {
-        // Given
-        val a = 5
-        val b = 10
-
-        // When
-        val result = calculateSum(a, b)
-
-        // Then
-        assertEquals(15, result)
+    fun `test groupSimilarTitles`(){
+        val given = "spede"
+        val expected = "speed"
+        val actual = groupSimilarTitles(given)
+        assertEquals(expected, actual)
     }
+
 }
