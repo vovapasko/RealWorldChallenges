@@ -5,7 +5,7 @@ Suppose the content library contains the following titles: "duel", "dule", "spee
 
  Constraint: only anagrams misspells are allowed. So no spe for example
  */
-fun groupSimilarTitles(inputTitle: String): String {
+fun groupSimilarTitles(inputTitle: String): String? {
     val wordBank = arrayListOf("speed", "wheel", "duel", "cars")
     val encodedWordBank: MutableMap<String, Int> = mutableMapOf()
     wordBank.forEach { word ->
@@ -22,6 +22,6 @@ fun groupSimilarTitles(inputTitle: String): String {
     inputTitle.forEach { symbol ->
         encodedInputTitle += symbol.code
     }
-    val wordFromBank = encodedWordBank.filterKeys { key -> encodedWordBank[key] == encodedInputTitle }.keys.first()
-    return wordFromBank
+    return encodedWordBank.filterKeys { key -> encodedWordBank[key] == encodedInputTitle }.keys.firstOrNull()
+
 }
